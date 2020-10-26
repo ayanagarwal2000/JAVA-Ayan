@@ -25,8 +25,8 @@ public class DPpathfind{
 		System.out.println("Time taken by normal = " +endAlgo() +"ms");
 		
 		startAlgo();		
-		System.out.println(cbpRS(n,0,strg));
-		System.out.println("Time taken by recursive = " +endAlgo() +"ms");
+		System.out.println(cbpIS(n,0));
+		System.out.println("Time taken by iterative = " +endAlgo() +"ms");
 	}
 	
 	public static int cbp(int end, int curr){
@@ -63,4 +63,23 @@ public class DPpathfind{
 		return count;
 	}
 	
-}
+	public static int cbpIS(int end, int curr) {
+		int[] strg = new int[end + 1];
+// seed
+        strg[end] = 1;
+        for (int i = end - 1; i >= 0; i--) {
+			int count=0;
+			for (int dice = 1; dice <= 6 && dice + i < strg. length; dice++){
+				count = count + strg[dice + i];
+			}
+			strg[i] = count;
+		}
+		return strg[curr];
+	}
+		
+int count = 0;
+	}
+
+
+
+
