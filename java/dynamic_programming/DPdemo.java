@@ -15,10 +15,10 @@ public class DPdemo{
 	}
 	
 	public static void main (String[] arg){
-		int n=30;
+		int n=70;
 		int [] strg=new int[n+1];
 		startAlgo();		
-		System.out.println(fib(n));
+		//System.out.println(fib(n));
 		System.out.println("Time taken by normal = " +endAlgo() +"ms");
 		
 		startAlgo();
@@ -47,10 +47,13 @@ public class DPdemo{
 		if(n==1){
 			return n;
 		}
+		if(strg[n]!=0){
+			return strg[n];
+		}
 		int fnm1=fibRS(n-1,strg);
 		int fnm2=fibRS(n-2, strg);
 		int fnm=fnm1+fnm2;
-		
+		strg[n]=fnm;
 		return fnm;
 	}
 }
