@@ -12,6 +12,8 @@ The folder contains items as follows :-
                                               
                                               3.2 Geniric (concepts and codes of generic)
                                            }
+                                          
+                                         4.Dynamic_progrmming (conepts of advance recursive and iteration)
     
     Hope you will like the effort.
     
