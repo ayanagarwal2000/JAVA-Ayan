@@ -12,7 +12,7 @@ public class DPeditdist{
 	}
 	
 	public static void main(String[] arg){
-		String str1="agbg", str2="acbg";
+		String str1="agbg", str2="acgb";
 	
 		startAlgo();		
 		System.out.println(editdistance(str1,str2));
