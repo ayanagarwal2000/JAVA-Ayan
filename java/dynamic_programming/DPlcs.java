@@ -13,12 +13,15 @@ public class DPlcs{
 	
 	public static void main(String[] arg){
 		
-		String str1="abbg", str2="agbg";
+		String str1="abbszdhvfodbzlg", str2="agsCvsbHvdcbvbg";
 	
 		startAlgo();		
 		System.out.println(lcs(str1,str2));
 		System.out.println("Time taken by recursive = " +endAlgo() +"ms");
 		
+		startAlgo();		
+		System.out.println(lcsI(str1,str2));
+		System.out.println("Time taken by iterator = " +endAlgo() +"ms");
 	}
 	
 	public static int lcs(String str1, String str2){
@@ -39,5 +42,29 @@ public class DPlcs{
 			count=Math.max(f1,f2);
 		}
 		return count;
+	}
+	
+	public static int lcsI(String s1, String s2){
+		
+		int [][] strg=new int[s1.length()+1][s2.length()+1];
+		
+		strg[s1.length()][s2.length()]=0;
+		
+		for(int i=s1.length(); i>=0; i--){
+			for(int j=s2.length(); j>=0;j--){
+				if(i==s1.length() || j==s2.length()){
+					strg[i][j]=0;
+					continue;
+				}
+				if(s1.charAt(i)==s2.charAt(j)){
+					strg[i][j]=1+strg[i+1][j+1];
+				}
+				else{
+					strg[i][j]=Math.max(strg[i+1][j],strg[i][j+1]);
+				}
+			}
+			
+		}
+		return strg[0][0];
 	}
 }
