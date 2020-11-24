@@ -13,7 +13,11 @@ public class DPlcs{
 	
 	public static void main(String[] arg){
 		
+<<<<<<< Updated upstream
 		String str1="abbszdhvfodbzlg", str2="agsCvsbHvdcbvbg";
+=======
+		String str1="cbbg", str2="agbg";
+>>>>>>> Stashed changes
 	
 		startAlgo();		
 		System.out.println(lcs(str1,str2));
