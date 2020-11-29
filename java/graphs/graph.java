@@ -82,4 +82,15 @@ public class graph{
 		vtx2.nbrs.remove(vname2);
 	}
 	
+	public void display(){
+		
+		ArrayList<String> keys=new ArrayList<>(vtces.keySet());
+		
+		for(String key: keys){
+			System.out.println("------------------------------------");
+			Vertex vtx=vtces.get(key);
+			System.out.println(key+ " - "+ vtx.nbrs);
+			System.out.println("------------------------------------");
+		}
+	}
 }
