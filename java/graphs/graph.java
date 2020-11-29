@@ -25,6 +25,18 @@ public class graph{
 		vtces.put(vname, vtc);
 	}
 	
+	public void removeVertex(String vname){
+		Vertex vtx= vtces.get(vname);
+		ArrayList<String> keys=new ArrayList<>(vtx.nbrs.keySet());
+		
+		for(String key :keys){
+			Vertex nbrVtx=vtces.get(key);
+			nbrVtx.nbrs.remove(vname);
+			
+		}
+		vtces.remove(vname);
+	}
+	
 	public int numEdges(){
 		ArrayList<String> keys=new ArrayList<>(vtces.keySet());
 		int count=0;
@@ -50,5 +62,24 @@ public class graph{
 		return false;
 	}
 	
+	public void addEdge(String vname1, String vname2, int cost){
+		Vertex vtx1=vtces.get(vname1);
+		Vertex vtx2=vtces.get(vname2);
+		if(vtx1.nbrs.containsKey(vname2)){
+			return;
+		}
+		vtx1.nbrs.put(vname2, cost);
+		vtx2.nbrs.put(vname1, cost);
+	}
+	
+	public void removeEdge(String vname1, String vname2){
+		Vertex vtx1=vtces.get(vname1);
+		Vertex vtx2=vtces.get(vname2);
+		if(vtx1==null || vtx2==null || !vtx1.nbrs.containsKey(vname2)){
+			return;
+		}
+		vtx1.nbrs.remove(vname1);
+		vtx2.nbrs.remove(vname2);
+	}
 	
 }
