@@ -11,6 +11,7 @@ public class graphclient{
 		graph.addVertex("E");
 		graph.addVertex("F");
 		graph.addVertex("G");
+		graph.addVertex("H");
 		
 		graph.addEdge("A","B", 2);
 		graph.addEdge("A","B", 3);
@@ -22,6 +23,9 @@ public class graphclient{
 		graph.addEdge("F","G", 9);
 		
 		graph.display();
+		//System.out.println(graph.containsEdge("A","G"));
 		
+		System.out.println(graph.hasPath("A","E",new HashMap<>()));
+		//System.out.println(graph.hasPath("A",""));
 	}
 }

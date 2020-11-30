@@ -93,4 +93,21 @@ public class graph{
 			System.out.println("------------------------------------");
 		}
 	}
+	
+	public boolean hasPath(String vname1, String vname2, HashMap<String,Boolean> processed){
+		processed.put(vname1,true);
+		if(containsEdge(vname1,vname2)){
+			return true;
+		}
+		Vertex vtx=vtces.get(vname1);
+		ArrayList<String> keys=new ArrayList<>(vtx.nbrs.keySet());
+		
+		for(String key :keys){
+			if(!processed.containsKey(key) && hasPath(key,vname2, processed)){
+				return true;
+			}
+			
+		}
+		return false;
+	}
 }
