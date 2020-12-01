@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.io.*; 
-import java.util.*; 
+import java.util.*;
+import java.util.LinkedList; 
 public class graph{
 	private class Vertex{
 		HashMap<String, Integer> nbrs=new HashMap<>();
@@ -109,5 +110,34 @@ public class graph{
 			
 		}
 		return false;
+	}
+	
+	private class pair{
+		String vname;
+		String pfs;
+	}
+	
+	public void bfs(String src, String dst){
+		HashMap<String,Boolean> processes=new HashMap<>();
+		LinkedList<pair> queue=new LinkedList<>();
+		
+		pair sp=new pair();
+		sp.vname=src;
+		sp.pfs=src;
+		
+		while(!queue.isEmpty()){
+			pair rp=queue.removeFirst();
+			
+		    processed.put(rp.vname,true);
+			
+			if(containsEdge(rp.vname,dst)){
+				return true;
+			}
+			
+			Vertex rpvtx=vtces.get(rp.vname);
+			ArrayList<String> keys=new ArrayList<>(rpvtx.nbrs.keySet());
+			
+		}
+		
 	}
 }
