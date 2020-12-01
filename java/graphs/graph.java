@@ -117,8 +117,8 @@ public class graph{
 		String pfs;
 	}
 	
-	public void bfs(String src, String dst){
-		HashMap<String,Boolean> processes=new HashMap<>();
+	public boolean bfs(String src, String dst){
+		HashMap<String,Boolean> processed=new HashMap<>();
 		LinkedList<pair> queue=new LinkedList<>();
 		
 		pair sp=new pair();
@@ -137,7 +137,16 @@ public class graph{
 			Vertex rpvtx=vtces.get(rp.vname);
 			ArrayList<String> keys=new ArrayList<>(rpvtx.nbrs.keySet());
 			
+			for(String key:keys){
+				if(!processed.containsKey(key)){
+					pair np=new pair();
+					np.vname=key;
+					np.pfs=rp.pfs+key;
+					queue.addLast(np);
+				}
+			}
+			
 		}
-		
+		return  false;
 	}
 }
