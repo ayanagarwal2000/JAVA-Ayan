@@ -23,9 +23,11 @@ public class graphclient{
 		graph.addEdge("F","G", 9);
 		
 		graph.display();
-		//System.out.println(graph.containsEdge("A","G"));
+		System.out.println("-------------Has Path------------------");
 		
 		System.out.println(graph.hasPath("A","E",new HashMap<>()));
-		//System.out.println(graph.hasPath("A",""));
+		System.out.println("-------------BFS------------------");
+		
+		System.out.println(graph.bfs("A","B"));
 	}
 }

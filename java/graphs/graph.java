@@ -128,9 +128,13 @@ public class graph{
 		while(!queue.isEmpty()){
 			pair rp=queue.removeFirst();
 			
+			if(processed.containsKey(rp.vname)){
+				continue;
+			}
 		    processed.put(rp.vname,true);
 			
 			if(containsEdge(rp.vname,dst)){
+				System.out.println(rp.pfs);
 				return true;
 			}
 			
