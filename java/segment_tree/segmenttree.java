@@ -38,4 +38,32 @@ public class segmenttree{
         return node;
 
     }
+
+    public void display(){
+        this.display(this.root);
+    }
+
+    private void display() {
+		LinkedList<Node> pqueue = new LinkedList<>();
+		LinkedList<Node> squeue = new LinkedList<>();
+
+		pqueue.add(this.root);
+		while (!pqueue.isEmpty()) {
+			Node rv = pqueue.remove();
+			System.out.print("[" + rv.si + "-" + rv.ei + "]=" + rv.data + ", ");
+			if (rv.left != null) {
+				squeue.add(rv.left);
+			}
+
+			if (rv.right != null) {
+				squeue.add(rv.right);
+			}
+
+			if (pqueue.isEmpty()) {
+				pqueue = squeue;
+				squeue = new LinkedList<>();
+				System.out.println("END");
+			}
+		}
+	}
 }
