@@ -39,18 +39,15 @@ public class segmenttree{
 
     }
 
-    public void display(){
-        this.display(this.root);
-    }
-
-    private void display() {
+    
+    public void display() {
 		LinkedList<Node> pqueue = new LinkedList<>();
 		LinkedList<Node> squeue = new LinkedList<>();
 
 		pqueue.add(this.root);
 		while (!pqueue.isEmpty()) {
 			Node rv = pqueue.remove();
-			System.out.print("[" + rv.si + "-" + rv.ei + "]=" + rv.data + ", ");
+			System.out.print("[" + rv.startinterval + "-" + rv.endinterval + "]=" + rv.data + ", ");
 			if (rv.left != null) {
 				squeue.add(rv.left);
 			}
