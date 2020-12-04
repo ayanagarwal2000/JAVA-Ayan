@@ -14,7 +14,7 @@ public class segmenttree{
     node root;
 
     public segmenttree(int []arr){
-        this.constructTree(arr, 0,arr.length-1);
+        this.root=constructTree(arr, 0,arr.length-1);
     }
 
     private node constructTree(int[] arr, int si, int ei){
