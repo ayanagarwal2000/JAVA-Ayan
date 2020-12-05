@@ -69,14 +69,32 @@ public class segmenttree{
 	}
 
 	private int query(Node node, int qsi, int qei) {
-		if (node.si >= qsi && node.ei <= qei) {
+		if (node.startinterval >= qsi && node.endinterval <= qei) {
 			return node.data;
-		} else if (node.ei < qsi || node.si > qei) {
+		} else if (node.endinterval < qsi || node.startinterval > qei) {
 			return 0;
 		} else {
 			int left = this.query(node.left, qsi, qei);
 			int right = this.query(node.right, qsi, qei);
 			return left + right;
 		}
+    }
+    
+    public void update(int index, int data) {
+		this.root.data = this.update(this.root, index, data);
+	}
+
+	private int update(Node node, int index, int data) {
+		if (index >= node.startinterval && index <= node.endinterval) {
+			if (index == node.startinterval && index == node.endinterval) {
+				node.data = data;
+			} else {
+				int leftdata = this.update(node.left, index, data);
+				int rightdata = this.update(node.right, index, data);
+				node.data = leftdata + rightdata;
+			}
+		}
+
+		return node.data;
 	}
 }
