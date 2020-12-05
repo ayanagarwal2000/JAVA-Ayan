@@ -62,5 +62,21 @@ public class segmenttree{
 				System.out.println("END");
 			}
 		}
+    }
+    
+    public int query(int qsi, int qei) {
+		return this.query(this.root, qsi, qei);
+	}
+
+	private int query(Node node, int qsi, int qei) {
+		if (node.si >= qsi && node.ei <= qei) {
+			return node.data;
+		} else if (node.ei < qsi || node.si > qei) {
+			return 0;
+		} else {
+			int left = this.query(node.left, qsi, qei);
+			int right = this.query(node.right, qsi, qei);
+			return left + right;
+		}
 	}
 }
